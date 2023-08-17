@@ -29,6 +29,12 @@ body {
 	letter-spacing: 0.5px;
 }
 
+h1,
+h2,
+h3 {
+	line-height: 1.1;
+}
+
 h1 {
 	/* font-size: 60px */
 }
@@ -305,5 +311,27 @@ h3 {
 @media (min-width: 768px) {
 	.offer__card-container {
 		grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+	}
+}
+
+/* O FIRMIE */
+
+.about {
+	grid-template-rows: 350px 1fr;
+}
+
+@media (min-width: 768px) {
+	.about {
+		grid-template-rows: 1fr;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 6vw;
+	}
+
+	.about__heading {
+		max-width: 230px;
+	}
+
+	.about__content {
+		padding-left: 5vw;
 	}
 }
