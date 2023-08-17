@@ -3,6 +3,7 @@ module.exports = {
     content: ["./dist/**/*.{html,js}"],
     theme: {
         colors: {
+            "transparent": "transparent",
             "black": "#000000",
             "white": "#FFFFFF",
             "beige": "#DCC1AB",

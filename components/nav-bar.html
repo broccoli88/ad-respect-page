@@ -1,5 +1,5 @@
-<header class="flex justify-between py-4 px-6 shadow-md fixed z-50 w-full">
-	<section class="relative flex justify-between grow">
+<header class="flex justify-between py-4 shadow-md fixed z-50 w-full bg-white">
+	<section class="relative flex justify-between w-10/12 m-auto">
 		<a href="#" class="flex">
 			<img src="../assets/logo.svg" alt="" />
 		</a>
@@ -7,12 +7,30 @@
 			<div class="menu-icon__shape w-5 h-5 rounded-full border-2"></div>
 			<div class="menu-icon__shape w-5 h-5 border-2"></div>
 		</div>
-		<nav class="nav">
+		<nav class="nav bg-white">
 			<ul
 				class="flex max-md:flex-col items-center justify-center h-full max-md:shadow-md md:gap-6 md:justify-end"
 			>
-				<li class="list-item">
+				<li class="list-item overflow-hidden">
 					<a href="#">Oferta</a>
+					<nav class="sub-nav flex justify-center md:absolute">
+						<ul
+							class="text-lg font-medium grid gap-3 w-full md:justify-start md:text-sm"
+						>
+							<li class="sub-nav__item w-full md:px-4">
+								<a href="#">Oferta 1</a>
+							</li>
+							<li class="sub-nav__item w-full md:px-4">
+								<a href="#">Oferta 2</a>
+							</li>
+							<li class="sub-nav__item w-full md:px-4">
+								<a href="#">Oferta 3</a>
+							</li>
+							<li class="sub-nav__item w-full md:px-4">
+								<a href="#">Oferta 4</a>
+							</li>
+						</ul>
+					</nav>
 				</li>
 				<li class="list-item">
 					<a href="#">O firmie</a>
@@ -29,7 +47,7 @@
 					<img
 						src="../assets/search.svg"
 						alt=""
-						class="list-item__input-icon w-5 h-5"
+						class="list-item__input-icon w-5 h-5 cursor-pointer"
 					/>
 					<input
 						type="text"
