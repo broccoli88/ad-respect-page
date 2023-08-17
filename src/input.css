@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,6 +24,8 @@
 }
 
 body {
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.45;
@@ -32,6 +35,8 @@ body {
 h1,
 h2,
 h3 {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
 	line-height: 1.1;
 }
 
@@ -333,5 +338,19 @@ h3 {
 
 	.about__content {
 		padding-left: 5vw;
+	}
+}
+
+/* INSTAGRAM */
+
+.instagram__btn {
+}
+
+@media (min-width: 768px) {
+	.instagram__container {
+		max-height: 520px;
+		grid-template-columns: 1fr 20%;
+		padding-inline: 10vw;
+		padding-block: 8vw;
 	}
 }

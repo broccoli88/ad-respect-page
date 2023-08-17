@@ -2,6 +2,10 @@
 module.exports = {
     content: ["./dist/**/*.{html,js}"],
     theme: {
+        fontFamily: {
+            'inter': ["Inter", 'sans-serif'],
+            'montserrat': ["Montserrat", 'sans-serif']
+        },
         colors: {
             "transparent": "transparent",
             "black": "#000000",
