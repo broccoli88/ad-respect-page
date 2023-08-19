@@ -148,22 +148,22 @@ galleryBtn.addEventListener('click', () => {
 // ? Macy.js
 
 const galleryImgs = [
-    "../assets/images/realizacje/Photo-re1.png",
-    "../assets/images/realizacje/Photo-re2.png",
-    "../assets/images/realizacje/Photo-re3.png",
-    "../assets/images/realizacje/Photo-re4.png",
-    "../assets/images/realizacje/Photo-re5.png",
-    "../assets/images/realizacje/Photo-re6.png",
-    "../assets/images/realizacje/Photo-re7.png",
-    "../assets/images/realizacje/Photo-re8.png",
-    "../assets/images/realizacje/Photo-re9.png",
-    "../assets/images/realizacje/Photo-re3.png",
-    "../assets/images/realizacje/Photo-re4.png",
-    "../assets/images/realizacje/Photo-re5.png",
-    "../assets/images/realizacje/Photo-re6.png",
-    "../assets/images/realizacje/Photo-re7.png",
-    "../assets/images/realizacje/Photo-re8.png",
-    "../assets/images/realizacje/Photo-re9.png"
+    "../public/images/realizacje/Photo-re1.png",
+    "../public/images/realizacje/Photo-re2.png",
+    "../public/images/realizacje/Photo-re3.png",
+    "../public/images/realizacje/Photo-re4.png",
+    "../public/images/realizacje/Photo-re5.png",
+    "../public/images/realizacje/Photo-re6.png",
+    "../public/images/realizacje/Photo-re7.png",
+    "../public/images/realizacje/Photo-re8.png",
+    "../public/images/realizacje/Photo-re9.png",
+    "../public/images/realizacje/Photo-re3.png",
+    "../public/images/realizacje/Photo-re4.png",
+    "../public/images/realizacje/Photo-re5.png",
+    "../public/images/realizacje/Photo-re6.png",
+    "../public/images/realizacje/Photo-re7.png",
+    "../public/images/realizacje/Photo-re8.png",
+    "../public/images/realizacje/Photo-re9.png"
 ]
 const macyContainer = document.querySelector('#macy-container')
 
