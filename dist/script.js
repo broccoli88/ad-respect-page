@@ -1,181 +1,117 @@
 // NAVBR
 
-// const menuButton = document.querySelector(".menu-icon")
-// const menuShapes = document.querySelectorAll('.menu-icon__shape')
-// const nav = document.querySelector('.nav')
-// const inputIcon = document.querySelector('.list-item__input-icon')
-// const inputListItem = document.querySelector('.list-item__input')
-// const inputField = document.querySelector('.list-item__input-field')
+const menuButton = document.querySelector(".menu-icon")
+const menuShapes = document.querySelectorAll('.menu-icon__shape')
+const nav = document.querySelector('.nav')
+const inputIcon = document.querySelector('.list-item__input-icon')
+const inputListItem = document.querySelector('.list-item__input')
+const inputField = document.querySelector('.list-item__input-field')
 
 
-// menuButton.addEventListener('click', () => {
-//     menuShapes.forEach(shape => {
-//         shape.classList.toggle('menu-icon--transform')
+menuButton.addEventListener('click', () => {
+    menuShapes.forEach(shape => {
+        shape.classList.toggle('menu-icon--transform')
 
-//     })
-//     nav.classList.toggle('nav--show')
-// })
-
-
-// inputIcon.addEventListener('click', () => {
-//     inputListItem.classList.add('list-item__input--visible')
-//     inputField.classList.add('list-item__input-field--visible')
-//     inputField.focus()
-// })
-
-// inputField.addEventListener('focusout', () => {
-//     inputField.classList.remove('list-item__input-field--visible')
-
-//     inputListItem.classList.remove('list-item__input--visible')
-// })
-
-// ?  REALIZACJE
-
-const galleryImgs = [
-    "../assets/images/realizacje/Photo-re1.png",
-    "../assets/images/realizacje/Photo-re2.png",
-    "../assets/images/realizacje/Photo-re3.png",
-    "../assets/images/realizacje/Photo-re4.png",
-    "../assets/images/realizacje/Photo-re5.png",
-    "../assets/images/realizacje/Photo-re6.png",
-    "../assets/images/realizacje/Photo-re7.png",
-    "../assets/images/realizacje/Photo-re8.png",
-    "../assets/images/realizacje/Photo-re9.png",
-    "../assets/images/realizacje/Photo-re3.png",
-    "../assets/images/realizacje/Photo-re4.png",
-    "../assets/images/realizacje/Photo-re5.png",
-    "../assets/images/realizacje/Photo-re6.png",
-    "../assets/images/realizacje/Photo-re7.png",
-    "../assets/images/realizacje/Photo-re8.png",
-    "../assets/images/realizacje/Photo-re9.png"
-]
-
-const galleryWrapper = document.querySelector('.gallery__wrapper')
-
-let screenWidth,
-    containerCount,
-    previousContainerCount,
-    colContainerCount = 0
-
-const getScreenWidth = () => {
-    screenWidth = window.innerWidth
-}
-
-const getContainerCount = () => {
-    if (screenWidth < 700) containerCount = 1
-    if (screenWidth >= 700 && screenWidth <= 1146) containerCount = 2
-    if (screenWidth > 1146 && screenWidth <= 1544) containerCount = 3
-    if (screenWidth > 1544) containerCount = 4
-}
-
-const removeContainers = () => {
-    const colContainer = document.querySelectorAll('.gallery__col-container')
-
-    colContainer.forEach(container => {
-        galleryWrapper.removeChild(container)
     })
-}
-
-
-const createContainers = () => {
-    const colContainer = document.querySelectorAll('.gallery__col-container')
-
-    colContainerCount = colContainer.length
-
-    if (colContainerCount >= 4) return
-    if (containerCount > 4) return
-
-    for (let i = containerCount; i > 0; i--) {
-        const div = document.createElement('div')
-        div.classList.add('gallery__col-container')
-        galleryWrapper.append(div)
-    }
-}
-
-const createImgEl = (parent, imgSrc) => {
-    const picture = document.createElement('picture')
-    const img = document.createElement('img')
-
-    img.classList.add('img')
-    img.src = imgSrc
-
-    picture.appendChild(img)
-    parent.appendChild(picture)
-}
-
-const populateContainers = () => {
-    const colContainers = document.querySelectorAll('.gallery__col-container ')
-
-    let colCount = 1
-
-    galleryImgs.forEach((img) => {
-        if (containerCount === 1) {
-            createImgEl(colContainers[0], img)
-        }
-
-        if (containerCount === 2) {
-            if (colCount === 1) {
-                createImgEl(colContainers[0], img)
-                colCount++
-            } else {
-                createImgEl(colContainers[1], img)
-                colCount = 1
-            }
-        }
-
-        if (containerCount === 3) {
-            if (colCount === 1) {
-                createImgEl(colContainers[0], img)
-                colCount++
-            } else if (colCount === 2) {
-                createImgEl(colContainers[1], img)
-                colCount++
-            } else {
-                createImgEl(colContainers[2], img)
-                colCount = 1
-            }
-        }
-
-        if (containerCount === 4) {
-            if (colCount === 1) {
-                createImgEl(colContainers[0], img)
-                colCount++
-            } else if (colCount === 2) {
-                createImgEl(colContainers[1], img)
-                colCount++
-            } else if (colCount === 3) {
-                createImgEl(colContainers[2], img)
-                colCount++
-            } else {
-                createImgEl(colContainers[3], img)
-                colCount = 1
-            }
-        }
-    })
-}
-
-window.addEventListener('resize', () => {
-    getScreenWidth()
-    previousContainerCount = containerCount
-    getContainerCount()
-
-    if (previousContainerCount !== containerCount) {
-        removeContainers()
-        createContainers()
-        populateContainers()
-    }
+    nav.classList.toggle('nav--show')
 })
 
 
-window.addEventListener('load', () => {
-    console.log("Load event occurred");
-    getScreenWidth();
-    getContainerCount();
-    removeContainers()
-    createContainers();
-    populateContainers()
-});
+inputIcon.addEventListener('click', () => {
+    inputListItem.classList.add('list-item__input--visible')
+    inputField.classList.add('list-item__input-field--visible')
+    inputField.focus()
+})
 
+inputField.addEventListener('focusout', () => {
+    inputField.classList.remove('list-item__input-field--visible')
+
+    inputListItem.classList.remove('list-item__input--visible')
+})
+
+// ? HERO SLIDER
+
+const hero = document.querySelector('.hero')
+const slideWrapper = document.querySelector('.slide-wrapper')
+const sliderBtnsLeft = document.querySelectorAll('.slider-btn-left')
+const sliderBtnsRight = document.querySelectorAll('.slider-btn-right')
+let firstSliderWidth = slideWrapper.querySelector('.slide').offsetWidth
+const slideWrapperChildren = [...slideWrapper.children]
+
+
+let isDragging = false,
+    startX,
+    startScrollLeft,
+    timeoutId
+
+slideWrapperChildren.slice(-1).reverse().forEach(slide => {
+    slideWrapper.insertAdjacentHTML('afterbegin', slide.outerHTML)
+})
+
+slideWrapperChildren.slice(0, 1).reverse().forEach(slide => {
+    slideWrapper.insertAdjacentHTML('beforeend', slide.outerHTML)
+})
+
+sliderBtnsLeft.forEach(btn => {
+    btn.addEventListener('click', () => {
+        slideWrapper.scrollLeft -= firstSliderWidth
+    })
+})
+
+sliderBtnsRight.forEach(btn => {
+    btn.addEventListener('click', () => {
+        slideWrapper.scrollLeft += firstSliderWidth
+    })
+})
+
+const dragStart = (e) => {
+    isDragging = true
+    slideWrapper.classList.add('dragging')
+    startX = e.pageX
+    startScrollLeft = slideWrapper.scrollLeft
+}
+
+const dragging = (e) => {
+    if (!isDragging) return
+    slideWrapper.scrollLeft = startScrollLeft - (e.pageX - startX)
+
+}
+
+const dragStop = () => {
+    isDragging = false
+    slideWrapper.classList.remove('dragging')
+}
+
+const autoPlay = () => {
+    if (window.innerWidth < 700) return
+    timeoutId = setTimeout(() => slideWrapper.scrollLeft += firstSliderWidth, 2500)
+}
+autoPlay()
+
+const infiniteScroll = () => {
+    if (slideWrapper.scrollLeft === 0) {
+        slideWrapper.classList.add('no-transition')
+        slideWrapper.scrollLeft = slideWrapper.scrollWidth - (2 * slideWrapper.offsetWidth)
+        slideWrapper.classList.remove('no-transition')
+    } else if (Math.ceil(slideWrapper.scrollLeft) === slideWrapper.scrollWidth - slideWrapper.offsetWidth) {
+        slideWrapper.classList.add('no-transition')
+        slideWrapper.scrollLeft = slideWrapper.offsetWidth
+        slideWrapper.classList.remove('no-transition')
+    }
+
+    clearTimeout(timeoutId)
+    if (!hero.matches(':hover')) autoPlay()
+}
+
+slideWrapper.addEventListener('mousedown', dragStart)
+slideWrapper.addEventListener('mousemove', dragging)
+document.addEventListener('mouseup', dragStop)
+slideWrapper.addEventListener('scroll', infiniteScroll)
+hero.addEventListener('mouseenter', () => clearTimeout(timeoutId))
+hero.addEventListener('mouseleave', autoPlay)
+
+
+// ?  REALIZACJE
 
 // Gallery btn
 
@@ -207,3 +143,89 @@ galleryBtn.addEventListener('click', () => {
     }, 700)
 
 })
+
+
+// ? Macy.js
+
+const galleryImgs = [
+    "../assets/images/realizacje/Photo-re1.png",
+    "../assets/images/realizacje/Photo-re2.png",
+    "../assets/images/realizacje/Photo-re3.png",
+    "../assets/images/realizacje/Photo-re4.png",
+    "../assets/images/realizacje/Photo-re5.png",
+    "../assets/images/realizacje/Photo-re6.png",
+    "../assets/images/realizacje/Photo-re7.png",
+    "../assets/images/realizacje/Photo-re8.png",
+    "../assets/images/realizacje/Photo-re9.png",
+    "../assets/images/realizacje/Photo-re3.png",
+    "../assets/images/realizacje/Photo-re4.png",
+    "../assets/images/realizacje/Photo-re5.png",
+    "../assets/images/realizacje/Photo-re6.png",
+    "../assets/images/realizacje/Photo-re7.png",
+    "../assets/images/realizacje/Photo-re8.png",
+    "../assets/images/realizacje/Photo-re9.png"
+]
+const macyContainer = document.querySelector('#macy-container')
+
+const macyInstance = Macy({
+    container: '#macy-container',
+    trueOrder: false,
+    waitForImages: true,
+    margin: 16,
+    columns: 4,
+    margin: {
+        x: 30,
+        y: 30
+    },
+    breakAt: {
+        1600: {
+
+            columns: 4
+        },
+        1540: {
+            margin: {
+                x: 30,
+                y: 30
+            },
+            columns: 3
+        },
+        1140: {
+            margin: {
+                x: 20,
+                y: 20
+            },
+            columns: 2
+        },
+        600: {
+            margin: {
+                x: 10,
+                y: 10
+            },
+            columns: 1,
+        }
+    }
+});
+
+const createContainers = () => {
+    galleryImgs.forEach(img => {
+        const pictureEl = document.createElement('picture')
+        const imgEl = document.createElement('img')
+
+        pictureEl.classList.add('macy-item')
+        imgEl.classList.add('img')
+        imgEl.src = img
+
+        pictureEl.appendChild(imgEl)
+        macyContainer.appendChild(pictureEl)
+    })
+}
+
+window.addEventListener('load', () => {
+    createContainers()
+    macyInstance.reInit();
+    macyInstance.runOnImageLoad(function () {
+        macyInstance.recalculate(true, true);
+    });
+})
+
+
