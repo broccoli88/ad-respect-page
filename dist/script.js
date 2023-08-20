@@ -29,14 +29,16 @@ inputField.addEventListener('focusout', () => {
     inputListItem.classList.remove('list-item__input--visible')
 })
 
-// ? HERO SLIDER
+//  HERO SLIDER
 
 const hero = document.querySelector('.hero')
 const slideWrapper = document.querySelector('.slide-wrapper')
 const sliderBtnsLeft = document.querySelectorAll('.slider-btn-left')
 const sliderBtnsRight = document.querySelectorAll('.slider-btn-right')
-let firstSliderWidth = slideWrapper.querySelector('.slide').offsetWidth
 const slideWrapperChildren = [...slideWrapper.children]
+let firstSliderWidth = slideWrapper.querySelector('.slide').offsetWidth
+
+
 
 
 let isDragging = false,
@@ -44,11 +46,13 @@ let isDragging = false,
     startScrollLeft,
     timeoutId
 
-slideWrapperChildren.slice(-1).reverse().forEach(slide => {
+let cardPerView = Math.round(slideWrapper.offsetWidth / firstSliderWidth)
+
+slideWrapperChildren.slice(-cardPerView).reverse().forEach(slide => {
     slideWrapper.insertAdjacentHTML('afterbegin', slide.outerHTML)
 })
 
-slideWrapperChildren.slice(0, 1).reverse().forEach(slide => {
+slideWrapperChildren.slice(0, cardPerView).forEach(slide => {
     slideWrapper.insertAdjacentHTML('beforeend', slide.outerHTML)
 })
 
@@ -111,7 +115,7 @@ hero.addEventListener('mouseenter', () => clearTimeout(timeoutId))
 hero.addEventListener('mouseleave', autoPlay)
 
 
-// ?  REALIZACJE
+//   REALIZACJE
 
 // Gallery btn
 
@@ -130,22 +134,23 @@ galleryBtn.addEventListener('click', () => {
     galleryContainer.classList.toggle('gallery-container-full', isBtnToggled)
     galleryCurtain.classList.toggle('gallery__curtain-disabled', isBtnToggled)
     galleryBtnArrow.classList.toggle('rotate-180', isBtnToggled)
+    galleryBtn.classList.toggle('gallery__btn-position', isBtnToggled)
     galleryBtn.classList.add('gallery__btn-effect')
 
     setTimeout(() => {
         if (isBtnToggled) galleryBtnText.textContent = 'Pokaż mniej'
         else galleryBtnText.textContent = 'Rozwiń'
 
-    }, 300)
+    }, 600)
 
     setTimeout(() => {
         galleryBtn.classList.remove('gallery__btn-effect')
-    }, 700)
+    }, 600)
 
 })
 
 
-// ? Macy.js
+//  Macy.js
 
 const galleryImgs = [
     "./images/realizacje/Photo-re1.png",
