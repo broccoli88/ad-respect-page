@@ -233,4 +233,67 @@ window.addEventListener('load', () => {
     });
 })
 
+// Modal
+
+const modal = document.querySelector('.modal')
+const modalImg = document.querySelector('.modal-img')
+const modalContentContainer = document.querySelector('.modal__content-container relative')
+const modalCloseBtn = document.querySelector('.modal__close-btn')
+const modalBtnLeft = document.querySelector('.modal-btn-left')
+const modalBtnRight = document.querySelector('.modal-btn-right')
+
+let imgSet = []
+let currentModalImgSrc
+let currentImgIndex
+
+const closeModal = () => {
+    modal.classList.remove('show-modal')
+    document.body.style.overflow = 'initial'
+    setTimeout(() => modalImg.src = '', 500)
+}
+
+const getImgSet = () => {
+    imgSet = []
+    macyContainer.children.forEach(child => {
+        const img = child.firstElementChild.src
+        imgSet.push(img)
+    })
+}
+
+macyContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('img')) {
+
+        modal.classList.add('show-modal')
+        document.body.style.overflow = 'hidden'
+        modalImg.src = e.target.src
+        currentModalImgSrc = e.target.src
+        currentImgIndex = imgSet.indexOf(currentModalImgSrc);
+        getImgSet()
+    }
+})
+
+modalCloseBtn.addEventListener('click', closeModal)
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal()
+    }
+})
+
+modalBtnLeft.addEventListener('click', () => {
+    currentImgIndex = (currentImgIndex - 1 + imgSet.length) % imgSet.length;
+    currentModalImgSrc = imgSet[currentImgIndex];
+    modalImg.src = currentModalImgSrc;
+})
+
+modalBtnRight.addEventListener('click', () => {
+    currentImgIndex = (currentImgIndex + 1) % imgSet.length;
+    currentModalImgSrc = imgSet[currentImgIndex];
+    modalImg.src = currentModalImgSrc;
+})
+
+
+
+
+
 
