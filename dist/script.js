@@ -11,6 +11,8 @@ const subNav = document.querySelector('.sub-nav')
 const subNavShape = document.querySelector('.sub-nav-shape')
 
 
+let isMobile = false
+
 menuButton.addEventListener('click', () => {
     menuShape.classList.toggle('menu-icon--transform')
     nav.classList.toggle('nav--show')
@@ -30,9 +32,28 @@ inputField.addEventListener('focusout', () => {
 
 
 navFirstItem.addEventListener('click', () => {
-    subNav.classList.toggle('sub-nav-unwrap')
-    subNavShape.classList.toggle('menu-icon--transform')
+    if (isMobile) {
+        subNav.classList.toggle('sub-nav-unwrap')
+        subNavShape.classList.toggle('menu-icon--transform')
+    }
 })
+
+
+const checkIfMobileView = () => {
+    window.innerWidth < 768 ? isMobile = true : isMobile = false
+}
+
+window.addEventListener('resize', () => {
+    checkIfMobileView()
+    if (!isMobile) {
+        nav.classList.remove('nav--show')
+        subNav.classList.remove('sub-nav-unwrap')
+        menuShape.classList.remove('menu-icon--transform')
+        subNavShape.classList.remove('menu-icon--transform')
+    }
+})
+
+window.addEventListener('load', checkIfMobileView)
 
 //  HERO SLIDER
 
