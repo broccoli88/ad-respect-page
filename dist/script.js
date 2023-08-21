@@ -1,18 +1,18 @@
 // NAVBR
 
 const menuButton = document.querySelector(".menu-icon")
-const menuShapes = document.querySelectorAll('.menu-icon__shape')
+const menuShape = document.querySelector('.menu-icon__shape')
 const nav = document.querySelector('.nav')
 const inputIcon = document.querySelector('.list-item__input-icon')
 const inputListItem = document.querySelector('.list-item__input')
 const inputField = document.querySelector('.list-item__input-field')
+const navFirstItem = document.querySelector('.list-item:first-of-type')
+const subNav = document.querySelector('.sub-nav')
+const subNavShape = document.querySelector('.sub-nav-shape')
 
 
 menuButton.addEventListener('click', () => {
-    menuShapes.forEach(shape => {
-        shape.classList.toggle('menu-icon--transform')
-
-    })
+    menuShape.classList.toggle('menu-icon--transform')
     nav.classList.toggle('nav--show')
 })
 
@@ -25,8 +25,13 @@ inputIcon.addEventListener('click', () => {
 
 inputField.addEventListener('focusout', () => {
     inputField.classList.remove('list-item__input-field--visible')
-
     inputListItem.classList.remove('list-item__input--visible')
+})
+
+
+navFirstItem.addEventListener('click', () => {
+    subNav.classList.toggle('sub-nav-unwrap')
+    subNavShape.classList.toggle('menu-icon--transform')
 })
 
 //  HERO SLIDER
@@ -236,8 +241,9 @@ window.addEventListener('load', () => {
 // Modal
 
 const modal = document.querySelector('.modal')
+const modalWrapper = document.querySelector('.modal-wrapper')
 const modalImg = document.querySelector('.modal-img')
-const modalContentContainer = document.querySelector('.modal__content-container relative')
+const modalContentContainer = document.querySelector('.modal__content-container')
 const modalCloseBtn = document.querySelector('.modal__close-btn')
 const modalBtnLeft = document.querySelector('.modal-btn-left')
 const modalBtnRight = document.querySelector('.modal-btn-right')
@@ -272,24 +278,36 @@ macyContainer.addEventListener('click', (e) => {
     }
 })
 
-modalCloseBtn.addEventListener('click', closeModal)
+modalCloseBtn.addEventListener('click', () => {
+    closeModal()
+})
 
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+modalWrapper.addEventListener('click', (e) => {
+    if (e.target === modalWrapper) {
         closeModal()
     }
 })
 
+const changeImg = () => {
+    modalImg.classList.add('modal__img-fade')
+    currentModalImgSrc = imgSet[currentImgIndex];
+
+    setTimeout(() => modalImg.src = currentModalImgSrc, 200)
+}
+
 modalBtnLeft.addEventListener('click', () => {
     currentImgIndex = (currentImgIndex - 1 + imgSet.length) % imgSet.length;
-    currentModalImgSrc = imgSet[currentImgIndex];
-    modalImg.src = currentModalImgSrc;
+    modalImg.classList.add('modal__img-fade-left')
+    changeImg()
+    setTimeout(() => modalImg.classList.remove('modal__img-fade-left'), 500)
+
 })
 
 modalBtnRight.addEventListener('click', () => {
     currentImgIndex = (currentImgIndex + 1) % imgSet.length;
-    currentModalImgSrc = imgSet[currentImgIndex];
-    modalImg.src = currentModalImgSrc;
+    modalImg.classList.add('modal__img-fade-right')
+    changeImg()
+    setTimeout(() => modalImg.classList.remove('modal__img-fade-right'), 500)
 })
 
 

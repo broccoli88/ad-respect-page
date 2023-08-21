@@ -26,14 +26,19 @@
 					<div
 						class="menu-icon__shape w-5 h-5 rounded-full border-2"
 					></div>
-					<div class="menu-icon__shape w-5 h-5 border-2"></div>
 				</div>
 				<nav class="nav bg-white">
 					<ul
 						class="flex max-md:flex-col items-center justify-center h-full max-md:shadow-md md:gap-6 md:justify-end flex-wrap"
 					>
 						<li class="list-item overflow-hidden">
-							<a href="#">Oferta</a>
+							<div class="flex gap-4 items-center justify-center">
+								<a href="#" class="max-md:ml-8">Oferta</a>
+								<div
+									class="sub-nav-shape w-5 h-5 rounded-full border-2 md:hidden"
+								></div>
+							</div>
+
 							<nav
 								class="sub-nav flex justify-center md:absolute"
 							>
@@ -435,9 +440,7 @@
 							>
 							<h2 class="about__heading mb-5 md:mb-14">
 								Działamy
-								<span class="font-inter italic">
-									kompleksowo</span
-								>
+								<i class="font-inter italic"> kompleksowo</i>
 							</h2>
 						</header>
 
@@ -566,7 +569,7 @@
 										<img
 											src="./svg/arrow-down.svg"
 											alt=""
-											class="img"
+											class="img -rotate-90"
 										/>
 									</picture>
 								</div>
@@ -596,9 +599,7 @@
 								>
 								<h2 class="about__heading mb-5 md:mb-14">
 									Tworzymy z
-									<span class="font-inter italic">
-										pasją</span
-									>
+									<i class="font-inter"> pasją</i>
 								</h2>
 							</header>
 							<p class="md:max-w-prose">
@@ -648,7 +649,7 @@
 						>
 						<h2 class="mb-5 md:mb-28">
 							Nasze
-							<span class="font-inter italic"> projekty</span>
+							<i class="font-inter"> projekty</i>
 						</h2>
 					</header>
 					<section class="gallery-container">
@@ -678,27 +679,30 @@
 					</section>
 				</div>
 			</section>
-			<section
-				class="bg-green py-8 md:bg-white md:grid place-content-center md:py-24"
-			>
+			<section class="bg-green my-8 py-8 md:bg-white md:grid md:py-24">
 				<div
-					class="instagram__container bg-green text-gray grid gap-8 items-center w-11/12 mx-auto"
+					class="instagram__container bg-green text-gray grid gap-8 justify-center items-center mx-auto md:gap-12 md:justify-stretch lg:w-9/12"
 				>
-					<h2>
-						<div class="max-md:mb-4">Zostańmy w kontakcie!</div>
-						<div>
+					<h2
+						class="text-center md:text-left md:text-4xl leading-normal"
+					>
+						<span class="max-md:mb-4">Zostańmy w kontakcie!</span>
+						<br />
+						<span>
 							Znajdziesz nas na
-							<span class="font-inter italic font-bold"
-								>Instagramie.</span
-							>
-						</div>
+							<i class="font-inter font-bold"
+								>Instagramie.</i
+							></span
+						>
 					</h2>
-					<section class="grid gap-4">
+					<section
+						class="grid gap-4 justify-center items-center md:justify-start"
+					>
 						<p>Śledź nasze najnowsze realizacje!</p>
 						<a
 							href="#"
 							type="button"
-							class="instagram__btn btn gap-2 rounded-full text-green bg-gray"
+							class="btn rounded-full text-green bg-gray block md:mx-0 h-fit"
 							>Instagram</a
 						>
 					</section>
@@ -765,9 +769,9 @@
 		</footer>
 
 		<div class="modal">
-			<div class="modal__content-container relative">
+			<div class="modal-wrapper relative">
 				<button
-					class="modal__close-btn absolute -top-16 -right-16 cursor-pointer"
+					class="modal__close-btn absolute top-8 right-8 cursor-pointer"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -784,51 +788,15 @@
 						/>
 					</svg>
 				</button>
-				<picture>
-					<img
-						class="modal-img img object-contain"
-						src="./images/Photo.png"
-						alt=""
-					/>
-				</picture>
-				<section class="modal__slider-btns flex gap-12 absolute">
-					<button
-						class="slider-btn-left bg-white p-2 cursor-pointer rounded-md"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="#000000"
-							class="w-6 h-6 rotate-90"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-							/>
-						</svg>
-					</button>
-					<button
-						class="slider-btn-right bg-white p-2 cursor-pointer rounded-md"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="#000000"
-							class="w-6 h-6 -rotate-90"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-							/>
-						</svg>
-					</button>
-				</section>
+				<div class="modal__content-container relative">
+					<picture>
+						<img
+							class="modal-img img object-contain"
+							src="./images/Photo.png"
+							alt=""
+						/>
+					</picture>
+				</div>
 				<section class="modal__slider-btns flex gap-12 absolute">
 					<button
 						class="modal-btn-left bg-white p-2 cursor-pointer rounded-md"
